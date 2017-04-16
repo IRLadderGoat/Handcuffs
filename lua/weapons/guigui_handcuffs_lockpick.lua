@@ -43,7 +43,7 @@ function SWEP:PrimaryAttack()
 			local wep = ent:GetActiveWeapon():GetClass()
 			if wep == "guigui_handcuffed" then
 				timer.Simple(0.4, function() PrintMessage(4, math.random(0,24).." %") timer.Simple(0.4, function() PrintMessage(4, math.random(25,79).." %") timer.Simple(0.4, function() PrintMessage(4, math.random(50,74).." %") timer.Simple(0.4, function() PrintMessage(4, math.random(75,99).." %") end) end) end) end)
-				timer.Simple( 2, function() if ply:GetPos():DistToSqr(ent:GetPos())<2500 then RemoveHandcuff(ent, ply, 1) ply:StripWeapon("Handcuffs_lockpick") end end )
+				timer.Simple( 2, function() if ply:GetPos():DistToSqr(ent:GetPos())<2500 then RemoveHandcuff(ent, ply, 1) ply:StripWeapon("guigui_handcuffs_lockpick") end end )
 			end
 		end
 	end
