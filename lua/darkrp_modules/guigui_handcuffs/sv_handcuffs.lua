@@ -1,1 +1,1 @@
-GM.NoLicense["guigui_handcuffed"] = true
+GM.NoLicense["guigui_handcuffed"]=true
