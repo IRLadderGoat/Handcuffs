@@ -1,7 +1,7 @@
-SWEP.PrintName = guigui_handcuff_lang().PrintName
+SWEP.PrintName = guigui_handcuff_lang().PrintName_Lockpick
 SWEP.Author = "Guillaume"
 SWEP.Category = "Guillaume's weapons"
-SWEP.Instructions = guigui_handcuff_lang().Instructions
+SWEP.Instructions = guigui_handcuff_lang().Instructions_Lockpick
 SWEP.Contact = "steamcommunity.com/id/guillaume_"
 SWEP.Slot = 0
 SWEP.SlotPos = 4
@@ -35,21 +35,6 @@ function SWEP:PreDrawViewModel()
 end
 
 function SWEP:PrimaryAttack()
-	if SERVER then 
-		local ply = self.Owner
-		local ent = ply:GetEyeTrace().Entity
-		if ply:GetPos():DistToSqr(ent:GetPos())<2500 then
-			local wep = ent:GetActiveWeapon():GetClass()
-			if wep == "guigui_handcuffed" then return false end
-			if guigui_handcuff_wep(wep) then
-				timer.Simple(0.4, function() PrintMessage(4, math.random(0,24).." %") timer.Simple(0.4, function() PrintMessage(4, math.random(25,79).." %") timer.Simple(0.4, function() PrintMessage(4, math.random(50,74).." %") timer.Simple(0.4, function() PrintMessage(4, math.random(75,99).." %") end) end) end) end)
-				timer.Simple(2, function() if ply:GetPos():DistToSqr(ent:GetPos())<2500 and ply:GetActiveWeapon():GetClass() == "guigui_handcuffs" then Handcuff(ent, ply) end end)
-			end
-		end
-	end
-end
-
-function SWEP:SecondaryAttack()
 	if CLIENT then return end
 	local ply = self.Owner
 	local ent = ply:GetEyeTrace().Entity
@@ -58,10 +43,13 @@ function SWEP:SecondaryAttack()
 			local wep = ent:GetActiveWeapon():GetClass()
 			if wep == "guigui_handcuffed" then
 				timer.Simple(0.4, function() PrintMessage(4, math.random(0,24).." %") timer.Simple(0.4, function() PrintMessage(4, math.random(25,79).." %") timer.Simple(0.4, function() PrintMessage(4, math.random(50,74).." %") timer.Simple(0.4, function() PrintMessage(4, math.random(75,99).." %") end) end) end) end)
-				timer.Simple(2, function() if ply:GetPos():DistToSqr(ent:GetPos())<2500 and ply:GetActiveWeapon():GetClass() == "guigui_handcuffs" then RemoveHandcuff(ent, ply) end end)
+				timer.Simple( 2, function() if ply:GetPos():DistToSqr(ent:GetPos())<2500 then RemoveHandcuff(ent, ply, 1) ply:StripWeapon("Handcuffs_lockpick") end end )
 			end
 		end
 	end
+end
+
+function SWEP:SecondaryAttack()
 end
 
 function SWEP:Reload()

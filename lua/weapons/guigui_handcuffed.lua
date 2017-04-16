@@ -1,4 +1,4 @@
-SWEP.PrintName = "Handcuffs"
+SWEP.PrintName = guigui_handcuff_lang().PrintName
 SWEP.Author = "Guillaume"
 SWEP.Category = "Guillaume's weapons"
 SWEP.Contact = "steamcommunity.com/id/guillaume_"
@@ -30,4 +30,17 @@ end
 
 function SWEP:PreDrawViewModel()
     return true
+end
+
+function SWEP:Holster()
+	return false
+end
+
+function SWEP:PrimaryAttack()
+end
+
+function SWEP:SecondaryAttack()
+end
+
+function SWEP:Reload()
 end
