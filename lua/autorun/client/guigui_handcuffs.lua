@@ -1,6 +1,7 @@
 CreateConVar("Handcuffs_ShowHeadText", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED }, "Show head text")
 
-surface.CreateFont("HandcuffsHUD", { font = "Arial", 
+surface.CreateFont("HandcuffsHUD", { 
+	font = "Arial", 
 	size = 50, 
 	antialias = true, 
 	weight = 750, 
