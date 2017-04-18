@@ -1,4 +1,3 @@
-CreateConVar("Handcuffs_ShowHeadText", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED }, "Show head text")
 CreateConVar("Handcuffs_StrictWeapons", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED }, "Strict weapons")
 
 function Handcuff(ent, ply)
