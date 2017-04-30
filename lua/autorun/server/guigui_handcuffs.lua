@@ -5,9 +5,10 @@ function Handcuff(ent, ply)
 	if ent:IsValid() and ent:IsPlayer() then
 		ent:Give("guigui_handcuffed")
 		ent:SelectWeapon("guigui_handcuffed")
-		local speed = ent:GetWalkSpeed()/2
-		ent:SetWalkSpeed(speed)
-		ent:SetRunSpeed(speed)
+		local WalkSpeed = ent:GetWalkSpeed()/2
+		local RunSpeed = ent:GetRunSpeed()/2
+		ent:SetWalkSpeed(WalkSpeed)
+		ent:SetRunSpeed(RunSpeed)
 		ent:ManipulateBoneAngles(ent:LookupBone("ValveBiped.Bip01_L_UpperArm"), Angle(20, 8.8, 0))
 		ent:ManipulateBoneAngles(ent:LookupBone("ValveBiped.Bip01_L_Forearm"), Angle(15, 0, 0))
 		ent:ManipulateBoneAngles(ent:LookupBone("ValveBiped.Bip01_L_Hand"), Angle(0, 0, 75))
@@ -26,9 +27,10 @@ function RemoveHandcuff(ent, ply, lockpick)
 	local wep = ent:GetActiveWeapon():GetClass()
 	if wep == "guigui_handcuffed" then
 		ent:StripWeapon("guigui_handcuffed")
-		local speed = ent:GetWalkSpeed()*2
-		ent:SetWalkSpeed(speed)
-		ent:SetRunSpeed(speed)
+		local WalkSpeed = ent:GetWalkSpeed()*2
+		local RunSpeed = ent:GetRunSpeed()*2
+		ent:SetWalkSpeed(WalkSpeed)
+		ent:SetRunSpeed(RunSpeed)
 		ent:ManipulateBoneAngles(ent:LookupBone("ValveBiped.Bip01_L_UpperArm"), Angle(0, 0, 0))
 		ent:ManipulateBoneAngles(ent:LookupBone("ValveBiped.Bip01_L_Forearm"), Angle(0, 0, 0))
 		ent:ManipulateBoneAngles(ent:LookupBone("ValveBiped.Bip01_L_Hand"), Angle(0, 0, 0))
