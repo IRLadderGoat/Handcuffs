@@ -63,9 +63,10 @@ hook.Add("PlayerSwitchWeapon", "Handcuffs", function(ply)
 hook.Add("PlayerDeath", "Handcuffs_death", function(ply)
 	if ply:HasWeapon("guigui_handcuffed") then
 		ply:StripWeapon("guigui_handcuffed")
-		local speed = ply:GetWalkSpeed()*2
-		ply:SetWalkSpeed(speed)
-		ply:SetRunSpeed(speed)
+		local WalkSpeed = ply:GetWalkSpeed()/2
+		local RunSpeed = ply:GetRunSpeed()/2
+		ply:SetWalkSpeed(WalkSpeed)
+		ply:SetRunSpeed(RunSpeed)
 		ply:ManipulateBoneAngles(ply:LookupBone("ValveBiped.Bip01_L_UpperArm"), Angle(0, 0, 0))
 		ply:ManipulateBoneAngles(ply:LookupBone("ValveBiped.Bip01_L_Forearm"), Angle(0, 0, 0))
 		ply:ManipulateBoneAngles(ply:LookupBone("ValveBiped.Bip01_L_Hand"), Angle(0, 0, 0))
