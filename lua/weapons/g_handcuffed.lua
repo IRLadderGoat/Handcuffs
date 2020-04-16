@@ -1,6 +1,6 @@
-SWEP.PrintName = guigui_handcuff_lang().PrintName
+SWEP.PrintName = g_handcuff_lang().PrintName
 SWEP.Author = "Guillaume"
-SWEP.Category = "Guillaume's weapons"
+SWEP.Category = "Handcuffs"
 SWEP.Contact = "steamcommunity.com/id/guillaume_"
 SWEP.Slot = 0
 SWEP.SlotPos = 0
@@ -19,6 +19,8 @@ SWEP.Secondary.DefaultClip = -1
 SWEP.Secondary.Automatic = true
 SWEP.Secondary.Ammo = "none"
 SWEP.DrawAmmo = false
+SWEP.Instructions = ""
+
 
 function SWEP:Initialize()
 	self:SetHoldType("normal")
@@ -43,4 +45,11 @@ function SWEP:SecondaryAttack()
 end
 
 function SWEP:Reload()
+end
+
+if CLIENT then
+function SWEP:DrawHUD()
+    if !LocalPlayer():Alive() then return end
+	draw.DrawText(g_handcuff_lang().Handcuffed, "HandcuffsHUD", ScrW()/2, ScrH()/1.08, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+end
 end

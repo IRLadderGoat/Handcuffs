@@ -2,7 +2,7 @@ Handcuffs = Handcuffs or {}
 
 Handcuffs.lang = GetConVar("gmod_language"):GetString()
 
-function guigui_handcuff_lang()
+function g_handcuff_lang()
 	for k, v in pairs(Handcuffs.langTable) do
 		if k == Handcuffs.lang then
 			return v
@@ -22,12 +22,15 @@ Handcuffs.langTable = {
 		["Handcuffed"] = "MENOTTÉ"
 	}, 
 	["en"] = {
-		["PrintName"] = "Handcuffs", 
-		["Instructions"] = "Left click to cuffed\nRight click to uncuffed", 
-		["PrintName_Lockpick"] = "Handcuffs lockpick", 
-		["Instructions_Lockpick"] = "Left click to break handcuffs", 
-		["Cuffed"] = "Cuffed", 
-		["Uncuffed"] = "Unuffed", 
-		["Handcuffed"] = "HANDCUFFED"
+		["PrintName"]		 		= "Handcuffs", 
+		["Instructions"] 			= "Left click to cuffed\nRight click to uncuffed", 
+		["PrintName_Lockpick"] 		= "Handcuffs lockpick", 
+		["Instructions_Lockpick"] 	= "Left click to break handcuffs", 
+		["Cuffed"] 					= "Cuffed", 
+		["Uncuffed"] 				= "Uncuffed", 
+		["Handcuffed"] 				= "HANDCUFFED",
+		["Dragged"] 				= "BEING DRAGGED",
+		["Arrested"] 				= "Arrested ",
+		["Unarrested"]				= "Unarrested ",
 	}
 }

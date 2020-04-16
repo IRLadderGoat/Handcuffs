@@ -1,0 +1,1 @@
+GM.NoLicense["g_handcuffed"]=true

@@ -1,1 +1,0 @@
-GM.NoLicense["guigui_handcuffed"]=true

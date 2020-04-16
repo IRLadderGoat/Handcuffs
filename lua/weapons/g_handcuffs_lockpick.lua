@@ -1,7 +1,7 @@
-SWEP.PrintName = guigui_handcuff_lang().PrintName_Lockpick
+SWEP.PrintName = g_handcuff_lang().PrintName_Lockpick
 SWEP.Author = "Guillaume"
-SWEP.Category = "Guillaume's weapons"
-SWEP.Instructions = guigui_handcuff_lang().Instructions_Lockpick
+SWEP.Category = "Handcuffs"
+SWEP.Instructions = g_handcuff_lang().Instructions_Lockpick
 SWEP.Contact = "steamcommunity.com/id/guillaume_"
 SWEP.Slot = 0
 SWEP.SlotPos = 4
@@ -21,6 +21,7 @@ SWEP.Secondary.DefaultClip = -1
 SWEP.Secondary.Automatic  = true
 SWEP.Secondary.Ammo = "none"
 SWEP.DrawAmmo = false
+SWEP.Instructions = "Left Click: Restrain/Release. \nRight Click: Force Players in and out of vehicle."
 
 function SWEP:Initialize()
 	self:SetHoldType("normal")
@@ -38,13 +39,15 @@ function SWEP:PrimaryAttack()
 	if CLIENT then return end
 	local ply = self.Owner
 	local ent = ply:GetEyeTrace().Entity
-	if ply:GetPos():DistToSqr(ent:GetPos())<2500 then
-		if ent:IsValid() and ent:IsPlayer() then
-			local wep = ent:GetActiveWeapon():GetClass()
-			if wep == "guigui_handcuffed" then
-				ply:PrintMessage(4, "...")
-				timer.Simple(2, function() if ply:GetPos():DistToSqr(ent:GetPos())<2500 then RemoveHandcuff(ent, ply, 1) ply:StripWeapon("guigui_handcuffs_lockpick") end end )
-			end
+	if Distance(ply, ent, 50) and ent:IsPlayer() then
+		if IsCuffed(ent) then
+			ply:PrintMessage(4, "...")
+			timer.Simple(2, function() 
+				if Distance(ply, ent, 50) then
+					RemoveHandcuff(ent, ply, 1) 
+					ply:StripWeapon("g_handcuffs_lockpick") 
+				end 
+			end)
 		end
 	end
 end

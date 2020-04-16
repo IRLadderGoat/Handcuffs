@@ -1,6 +1,6 @@
 Handcuffs = Handcuffs or {}
 
-function guigui_handcuff_wep(wep)
+function g_handcuff_wep(wep)
 	for k, v in pairs(Handcuffs.wepTable) do
 		if k == wep then
 			return v
