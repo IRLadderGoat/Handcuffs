@@ -19,16 +19,6 @@ NPC.Jailer.npcSpawns["gm_construct"] = {
 		mdl = "models/Characters/Hostage_02.mdl",
 	}
 }
-
-NPC.Jailer.npcSpawns["gm_construct"] = {
-	{
-		pos = Vector(640, -650, -130),
-		ang = Angle(0, -90, 0),
-		mdl = "models/Characters/Hostage_02.mdl",
-	}
-}
-
-
 NPC.Bailer.npcSpawns["gm_construct"] = {
 	{
 		pos = Vector(700, -180, -75),
