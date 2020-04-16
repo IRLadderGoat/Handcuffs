@@ -1,7 +1,7 @@
 # Handcuffs
 **Addon for Garry's Mod.**
 
-:white_check_mark: This handcuffs are compatible with all gamemode in Garry's Mod.
+:white_check_mark: This handcuffs are compatible with all gamemode in Garry's Mod, though the jailer/bailer only work with the DarkRP gamemode.
 
 :white_check_mark: This addon is adapted for DarkRP gamemode.
 
