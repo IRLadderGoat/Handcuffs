@@ -1,4 +1,4 @@
-SWEP.PrintName = guigui_handcuff_lang().PrintName
+SWEP.PrintName = g_handcuff_lang().PrintName
 SWEP.Author = "Guillaume"
 SWEP.Category = "Handcuffs"
 SWEP.Instructions = guigui_handcuff_lang().Instructions
