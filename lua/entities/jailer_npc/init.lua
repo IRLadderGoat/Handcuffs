@@ -2,11 +2,39 @@
 
 AddCSLuaFile( "cl_init.lua" )
 AddCSLuaFile( "shared.lua" )
- 
+AddCSLuaFile('entities/sv_config.lua')
+
 include('shared.lua')
+include('entities/sv_config.lua')
 
 util.AddNetworkString("Jailermenu")
 util.AddNetworkString("Jailplayer")
+
+function Spawn()
+	--> Map Check
+	if !NPC.Jailer.npcSpawns[game.GetMap()] then
+		ErrorNoHalt("Missing car dealer spawn points for map: "..game.GetMap())
+		return 
+	end
+	
+	--> Loop Dealers
+	for k,v in pairs(NPC.Jailer.npcSpawns[game.GetMap()]) do
+		--> NPC
+		local jailer = ents.Create("jailer_npc")
+		jailer:SetPos(v.pos + Vector(0, 0, 10))
+		jailer:SetAngles(v.ang)
+		jailer:SetModel(v.mdl)
+		jailer:SetHullType(HULL_HUMAN)
+		jailer:SetHullSizeNormal()
+		jailer:SetNPCState(NPC_STATE_SCRIPT)
+		jailer:SetSolid(SOLID_BBOX)
+		jailer:CapabilitiesAdd(bit.bor(CAP_ANIMATEDFACE, CAP_TURN_HEAD))
+		jailer:SetUseType(SIMPLE_USE)
+		jailer:Spawn()
+		jailer:DropToFloor()    
+	end
+end
+hook.Add("InitPostEntity", "JailerSpawn", Spawn)
 
 
 function ENT:Initialize()

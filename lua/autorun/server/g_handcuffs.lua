@@ -1,7 +1,7 @@
 CreateConVar("Handcuffs_StrictWeapons", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED }, "Strict weapons")
 
 function Handcuff(ent, ply)
-	if IsCuffed(ent) then return false
+	if IsCuffed(ent) then return false end
 	if ent:IsValid() and ent:IsPlayer() then
 		ent:Give("g_handcuffed")
 		ent:SelectWeapon("g_handcuffed")
@@ -23,7 +23,6 @@ function Handcuff(ent, ply)
 end
 
 function RemoveHandcuff(ent, ply, lockpick)
-
 	if IsCuffed(ent) then
 		ent:StripWeapon("g_handcuffed")
 		local WalkSpeed = ent:GetWalkSpeed()*2

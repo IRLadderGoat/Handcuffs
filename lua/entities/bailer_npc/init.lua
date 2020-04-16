@@ -2,12 +2,39 @@
 
 AddCSLuaFile( "cl_init.lua" )
 AddCSLuaFile( "shared.lua" )
+AddCSLuaFile("entities/sv_config.lua")
  
 include('shared.lua')
+include('entities/sv_config.lua')
 
 util.AddNetworkString("Bailermenu")
 util.AddNetworkString("Bailplayer")
 
+function Spawn()
+	--> Map Check
+	if !NPC.Bailer.npcSpawns[game.GetMap()] then
+		ErrorNoHalt("Missing car dealer spawn points for map: "..game.GetMap())
+		return 
+	end
+
+	--> Loop Dealers
+	for k,v in pairs(NPC.Bailer.npcSpawns[game.GetMap()]) do
+		--> NPC
+		local bailer = ents.Create("bailer_npc")
+		bailer:SetPos(v.pos + Vector(0, 0, 10))
+		bailer:SetAngles(v.ang)
+		bailer:SetModel(v.mdl)
+		bailer:SetHullType(HULL_HUMAN)
+		bailer:SetHullSizeNormal()
+		bailer:SetNPCState(NPC_STATE_SCRIPT)
+		bailer:SetSolid(SOLID_BBOX)
+		bailer:CapabilitiesAdd(bit.bor(CAP_ANIMATEDFACE, CAP_TURN_HEAD))
+		bailer:SetUseType(SIMPLE_USE)
+		bailer:Spawn()
+		bailer:DropToFloor()
+	end
+end
+hook.Add("InitPostEntity", "BailerSpawn", Spawn)
 
 function ENT:Initialize()
 	self:SetModel( "models/mossman.mdl" )

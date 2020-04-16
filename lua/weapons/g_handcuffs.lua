@@ -1,7 +1,7 @@
 SWEP.PrintName = g_handcuff_lang().PrintName
 SWEP.Author = "Guillaume"
 SWEP.Category = "Handcuffs"
-SWEP.Instructions = guigui_handcuff_lang().Instructions
+SWEP.Instructions = g_handcuff_lang().Instructions
 SWEP.Contact = "steamcommunity.com/id/guillaume_"
 SWEP.Slot = 0
 SWEP.SlotPos = 4
