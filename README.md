@@ -1,14 +1,8 @@
 # Handcuffs
 **Addon for Garry's Mod.**
 
-:white_check_mark: This handcuffs are compatible with all gamemode in Garry's Mod, though the jailer/bailer only work with the DarkRP gamemode.
+:white_check_mark: These handcuffs are compatible with all gamemode in Garry's Mod, though the jailer/bailer only work with the DarkRP gamemode.
 
 :white_check_mark: This addon is adapted for DarkRP gamemode.
 
-## :paperclip: Getting Handcuffs
-* Workshop version : http://steamcommunity.com/sharedfiles/filedetails/?id=746876505
-* Release version : https://github.com/Mumdi/Handcuffs/releases
-
-## :memo: Getting help
-* Forum of addon : http://steamcommunity.com/sharedfiles/filedetails/discussions/746876505
-* Issues : https://github.com/Mumdi/Handcuffs/issues
+This is an extension of https://github.com/GuillaumeBenit/Handcuffs, which only contains handcuffs and lockpicks for the handcuffs. I've appended the functionality for a jailer such that players can be brought to a station and be arrested there, and a bailer such that you can bail out friends for a sum of money.
