@@ -11,7 +11,7 @@ NPC.Bailer.npcSpawns = {}
 NPC.settings.interactDistance = 400
 NPC.settings.playerDistance     = 400
 
-
+-- Replace the following configuration with your map and npc position
 NPC.Jailer.npcSpawns["gm_construct"] = {
 	{
 		pos = Vector(780, -180, -75),
