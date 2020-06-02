@@ -8,3 +8,5 @@
 This is an extension of https://github.com/GuillaumeBenit/Handcuffs, which only contains handcuffs and lockpicks for the handcuffs.
 I've appended the functionality for a jailer such that players can be brought to a station and be arrested there, and a bailer such that you can bail out friends for a sum of money.
 I've also added the functionality for dragging handcuffed players
+
+When players are jailed they will be jailed to the servers default DARKRP jail positions. Same thing goes for when being bailed out, but this puts you at default spawn position
